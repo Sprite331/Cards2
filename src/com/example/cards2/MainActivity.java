@@ -11,21 +11,26 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	public static int count = 2;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
 		final Context contextt = this;
+
+		//View someView = inflater.inflate(R.layout.get_param, view, false);
 		
 		final Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	LinearLayout linearLayout = (LinearLayout)findViewById(R.id.mainn);
         		TextView valueTV = new TextView(contextt);
-        	    valueTV.setText("CardOne");
-        	    valueTV.setId(2);
-        		linearLayout.addView(valueTV);
+        	    valueTV.setText("Card #"+count);
+        	    valueTV.setId(count);
+        		linearLayout.addView(valueTV, 0);
+        		count++;
             }
         });
 		
